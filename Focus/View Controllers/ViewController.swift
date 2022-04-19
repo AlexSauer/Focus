@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController {
 
@@ -15,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var resetButton: NSButton!
    
     var pomodoroTimer = PomodoroTimer()
+    var soundplayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +25,24 @@ class ViewController: NSViewController {
         pomodoroTimer.delegate = self
     }
     
-    override func awakeFromNib() {
-        
-        if self.view.layer != nil {
-            let color : CGColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-            self.view.layer?.backgroundColor = color
-            
-            let textcolor = NSColor.white
-            let buttonAttributes = [NSAttributedString.Key.foregroundColor: textcolor]
-            timeLeftField.textColor = textcolor
-            startButton.attributedTitle = NSAttributedString(
-                string: "Start", attributes: buttonAttributes)
-            stopButton.attributedTitle = NSAttributedString(
-                string: "Stop", attributes: buttonAttributes)
-            resetButton.attributedTitle = NSAttributedString(
-                string: "Reset", attributes: buttonAttributes)
-        }
-    }
+// Changing the view controller appearance to dark aqua solved the color problem
+//    override func awakeFromNib() {
+//
+//        if self.view.layer != nil {
+//            let color : CGColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+//            self.view.layer?.backgroundColor = color
+//
+//            let textcolor = NSColor.white
+//            let buttonAttributes = [NSAttributedString.Key.foregroundColor: textcolor]
+//            timeLeftField.textColor = textcolor
+//            startButton.attributedTitle = NSAttributedString(
+//                string: "Start", attributes: buttonAttributes)
+//            stopButton.attributedTitle = NSAttributedString(
+//                string: "Stop", attributes: buttonAttributes)
+//            resetButton.attributedTitle = NSAttributedString(
+//                string: "Reset", attributes: buttonAttributes)
+//        }
+//    }
 
     override var representedObject: Any? {
         didSet {
@@ -56,6 +59,7 @@ class ViewController: NSViewController {
             pomodoroTimer.duration = 25*60
             pomodoroTimer.startTimer()
         }
+        prepareSound()
     }
     
     @IBAction func stopButtonClicked(_ sender: Any) {
@@ -78,6 +82,7 @@ extension ViewController: PomodoroTimerProtocol {
     
     func timerHasFinished(_ timer: PomodoroTimer) {
         updateDisplay(for: 0)
+        playSound()
     }
 }
 
@@ -103,3 +108,29 @@ extension ViewController{
     }
         
 }
+
+// MARK: - Audio
+
+extension ViewController {
+    
+    func prepareSound() {
+        guard let audioFileUrl = Bundle.main.url(forResource: "ding", withExtension: "mp3") else {
+            return
+            
+        }
+        do {
+            soundplayer = try AVAudioPlayer(contentsOf: audioFileUrl)
+        } catch {
+            print("Sound player not available: \(error)")
+        }
+    }
+    
+    func playSound() {
+        soundplayer?.play()
+    }
+}
+
+
+
+
+
