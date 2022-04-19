@@ -17,12 +17,14 @@ class ViewController: NSViewController {
    
     var pomodoroTimer = PomodoroTimer()
     var soundplayer: AVAudioPlayer?
+    var prefs = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.layer?.backgroundColor = CGColor(red: 1.0, green: 1, blue: 0, alpha: 1.0)
         self.view.wantsLayer = true
         pomodoroTimer.delegate = self
+        setupPrefs()
     }
     
 // Changing the view controller appearance to dark aqua solved the color problem
@@ -56,7 +58,7 @@ class ViewController: NSViewController {
         if pomodoroTimer.isPaused {
             pomodoroTimer.resumeTimer()
         } else {
-            pomodoroTimer.duration = 25*60
+            pomodoroTimer.duration = prefs.selectedTime
             pomodoroTimer.startTimer()
         }
         prepareSound()
@@ -68,7 +70,7 @@ class ViewController: NSViewController {
     
     @IBAction func resetButtonClicked(_ sender: Any) {
         pomodoroTimer.resetTimer()
-        updateDisplay(for: 25*60)
+        updateDisplay(for: prefs.selectedTime)
     }
 }
 
@@ -83,6 +85,7 @@ extension ViewController: PomodoroTimerProtocol {
     func timerHasFinished(_ timer: PomodoroTimer) {
         updateDisplay(for: 0)
         playSound()
+        resetButtonClicked(self)
     }
 }
 
@@ -127,6 +130,25 @@ extension ViewController {
     
     func playSound() {
         soundplayer?.play()
+    }
+}
+
+// MARK: - Preferences
+
+extension ViewController {
+    func setupPrefs() {
+        updateDisplay(for: prefs.selectedTime)
+        
+        let notificationName = Notification.Name(rawValue: "PrefsChanged")
+        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) {
+            (notification) in
+            self.updateFromPrefs()
+        }
+    }
+    
+    func updateFromPrefs() {
+        self.pomodoroTimer.duration = self.prefs.selectedTime
+        self.resetButtonClicked(self)
     }
 }
 

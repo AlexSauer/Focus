@@ -212,7 +212,7 @@
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34q-9x-QQc">
                                 <rect key="frame" x="18" y="82" width="444" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="120" doubleValue="25" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="S2Z-RK-hzE"/>
+                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="60" doubleValue="60" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="S2Z-RK-hzE"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" target="p4M-zz-OlW" id="eXj-NN-GHA"/>
                                 </connections>
