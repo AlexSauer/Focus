@@ -12,6 +12,9 @@ class PrefsViewController: NSViewController {
     @IBOutlet weak var presetsPopup: NSPopUpButton!
     @IBOutlet weak var customLengthField: NSTextField!
     @IBOutlet weak var customSlider: NSSlider!
+    @IBOutlet weak var breakField: NSTextField!
+    @IBOutlet weak var breakSlider: NSSlider!
+    @IBOutlet weak var tickAutomatic: NSButtonCell!
     
     var prefs = Preferences()
     
@@ -37,6 +40,13 @@ class PrefsViewController: NSViewController {
         showSliderValueAsText()
     }
     
+    @IBAction func breakSliderChanged(_ sender: Any) {
+        showBreakSliderValueAsText()
+    }
+    
+    @IBAction func tickAutomaticChanged(_ sender: Any) {
+    }
+    
     @IBAction func cancelButtonClicked(_ sender: Any) {
         view.window?.close()
     }
@@ -48,6 +58,7 @@ class PrefsViewController: NSViewController {
     
     
     func showExistingPrefs() {
+        // Pomodoro Time
         let selectedTimeinMinutes = Int(prefs.selectedTime) / 60
         
         presetsPopup.selectItem(withTitle: "Custom")
@@ -60,9 +71,15 @@ class PrefsViewController: NSViewController {
                 break
             }
         }
-        
         customSlider.integerValue = selectedTimeinMinutes
         showSliderValueAsText()
+        
+        // Break Time
+        breakSlider.integerValue = Int(prefs.breakTime) / 60
+        showBreakSliderValueAsText()
+        
+        // Automatic breaks
+        tickAutomatic.state = prefs.automaticBreak ? NSControl.StateValue.on : NSControl.StateValue.off
         }
     
     func showSliderValueAsText() {
@@ -71,8 +88,16 @@ class PrefsViewController: NSViewController {
         customLengthField.stringValue = "\(newTimerDuration) \(minutesDescription)"
     }
     
+    func showBreakSliderValueAsText() {
+        let curValue = breakSlider.integerValue
+        let minutesDescription = (curValue == 1) ? "minute" : "minutes"
+        breakField.stringValue = "\(curValue) \(minutesDescription)"
+    }
+    
     func saveNewPrefs() {
         prefs.selectedTime = Double(customSlider.integerValue) * 60
+        prefs.breakTime = Double(breakSlider.integerValue) * 60
+        prefs.automaticBreak = tickAutomatic.state == NSControl.StateValue.on
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged"), object: nil)
     }
 }

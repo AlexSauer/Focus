@@ -21,4 +21,27 @@ struct Preferences {
             UserDefaults.standard.set(newValue, forKey: "selectedTime")
         }
     }
+    
+    var breakTime: TimeInterval {
+        get {
+            let savedBreakTime = UserDefaults.standard.double(forKey: "breakTime")
+            if savedBreakTime > 0 {
+                return savedBreakTime
+            } else {
+                return 5 * 60
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "breakTime")
+        }
+    }
+    
+    var automaticBreak: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "autoBreak")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "autoBreak")
+        }
+    }
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B26435D280EC9840015E41B /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26435C280EC9840015E41B /* PrefsViewController.swift */; };
 		3B26435F280EED9D0015E41B /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B26435E280EED9D0015E41B /* ding.mp3 */; };
-		3B264361280EEE460015E41B /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B264360280EEE460015E41B /* PomodoroTimer.swift */; };
+		3B264361280EEE460015E41B /* GeneralTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B264360280EEE460015E41B /* GeneralTimer.swift */; };
 		3B264363280F059E0015E41B /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B264362280F059E0015E41B /* Preferences.swift */; };
 		3B60E56928103F3F0009F74A /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3B60E56828103F3F0009F74A /* ToDo.txt */; };
 		3B678EBC280EC0970035C4DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B678EBB280EC0970035C4DC /* AppDelegate.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		3B26435C280EC9840015E41B /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		3B26435E280EED9D0015E41B /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
-		3B264360280EEE460015E41B /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
+		3B264360280EEE460015E41B /* GeneralTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTimer.swift; sourceTree = "<group>"; };
 		3B264362280F059E0015E41B /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		3B60E56828103F3F0009F74A /* ToDo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		3B678EB8280EC0970035C4DC /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +86,7 @@
 		3B678ECD280EC0B20035C4DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B264360280EEE460015E41B /* PomodoroTimer.swift */,
+				3B264360280EEE460015E41B /* GeneralTimer.swift */,
 				3B264362280F059E0015E41B /* Preferences.swift */,
 				3BBFCE5C280F56D100D6E216 /* Pomodoro.swift */,
 				3BBFCE5E280F59A000D6E216 /* PomodoroHistory.swift */,
@@ -183,7 +183,7 @@
 				3BBFCE5D280F56D100D6E216 /* Pomodoro.swift in Sources */,
 				3B678EBC280EC0970035C4DC /* AppDelegate.swift in Sources */,
 				3BBFCE61280F601500D6E216 /* HistoryViewController.swift in Sources */,
-				3B264361280EEE460015E41B /* PomodoroTimer.swift in Sources */,
+				3B264361280EEE460015E41B /* GeneralTimer.swift in Sources */,
 				3B26435D280EC9840015E41B /* PrefsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

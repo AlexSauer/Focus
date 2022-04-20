@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var titleField: NSTextField!
     @IBOutlet weak var historyButton: NSButton!
     
-    var pomodoroTimer = PomodoroTimer()
+    var pomodoroTimer = GeneralTimer()
     var soundplayer: AVAudioPlayer?
     var prefs = Preferences()
     var history = PomodoroHistory()
@@ -52,9 +52,21 @@ class ViewController: NSViewController {
     }
     
     @IBAction func resetButtonClicked(_ sender: Any) {
-        history.append(Pomodoro(pomodoroTimer))
         pomodoroTimer.resetTimer()
-        updateDisplay(for: prefs.selectedTime)
+        updateDisplay(for: pomodoroTimer.getDuration())
+    }
+    
+    @IBAction func titleButtonClicked(_ sender: Any) {
+        switch pomodoroTimer.mode {
+        case .pomodoro:
+            titleField.stringValue = "Break"
+            pomodoroTimer.mode = .pause
+        case .pause:
+            titleField.stringValue = "Timer"
+            pomodoroTimer.mode = .pomodoro
+        }
+        pomodoroTimer.resetTimer()
+        updateDisplay(for: pomodoroTimer.getDuration())
     }
     
     @IBAction func historyButtonClicked(_ sender: Any) {
@@ -63,17 +75,32 @@ class ViewController: NSViewController {
 }
 
 
-// MARK: - PomodoroTimerProtocol
+// MARK: - GeneralTimerProtocol
 
-extension ViewController: PomodoroTimerProtocol {
-    func timeReminingOnTimer(_ timer: PomodoroTimer, timeRemaining: TimeInterval) {
+extension ViewController: GeneralTimerProtocol {
+    func timeReminingOnTimer(_ timer: GeneralTimer, timeRemaining: TimeInterval) {
         updateDisplay(for: timeRemaining)
     }
     
-    func timerHasFinished(_ timer: PomodoroTimer) {
+    func timerHasFinished(_ timer: GeneralTimer) {
         updateDisplay(for: 0)
         playSound()
-        resetButtonClicked(self)
+        
+        // Save the pomodoro to history, reset Timer and change the mode
+        if pomodoroTimer.mode == .pomodoro{
+            history.append(Pomodoro(pomodoroTimer))
+        }
+        titleButtonClicked(self)
+        
+        // Depending on the settings, automatically restart the break timer
+        if pomodoroTimer.mode == .pause && prefs.automaticBreak {
+            do {
+                // Somehow without this sleep, the sound isn't played but
+                // the timer is started immediateldy again
+                sleep(2)
+            }
+            startButtonClicked(self)
+        }
     }
 }
 
@@ -136,6 +163,7 @@ extension ViewController {
     
     func updateFromPrefs() {
         self.pomodoroTimer.duration = self.prefs.selectedTime
+        self.pomodoroTimer.durationBreak = self.prefs.breakTime
         self.resetButtonClicked(self)
     }
 }

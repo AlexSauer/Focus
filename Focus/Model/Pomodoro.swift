@@ -12,7 +12,7 @@ struct Pomodoro {
     var endTime: Date
     var duration: TimeInterval
    
-    init(_ timer: PomodoroTimer){
+    init(_ timer: GeneralTimer){
         startTime = timer.startTime
         endTime = timer.stopTime ?? Date.now
         duration = timer.duration

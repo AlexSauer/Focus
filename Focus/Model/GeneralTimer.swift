@@ -1,5 +1,5 @@
 //
-//  PomodoroTimer.swift
+//  GeneralTimer.swift
 //  Focus
 //
 //  Created by Alexander Sauer on 19/04/2022.
@@ -8,20 +8,27 @@
 import Foundation
 
 
-protocol PomodoroTimerProtocol {
-    func timeReminingOnTimer(_ timer: PomodoroTimer, timeRemaining: TimeInterval)
-    func timerHasFinished(_ timer: PomodoroTimer)
+protocol GeneralTimerProtocol {
+    func timeReminingOnTimer(_ timer: GeneralTimer, timeRemaining: TimeInterval)
+    func timerHasFinished(_ timer: GeneralTimer)
+}
+
+enum Mode{
+    case pomodoro
+    case pause
 }
 
 
-class PomodoroTimer {
+class GeneralTimer {
     var timer: Timer? = nil
     var startTime: Date?
     var stopTime: Date?
     var duration: TimeInterval = 25*60
     var elapsedTime: TimeInterval = 0
+    var mode: Mode = Mode.pomodoro
+    var durationBreak: TimeInterval = 5 * 60
     
-    var delegate: PomodoroTimerProtocol?
+    var delegate: GeneralTimerProtocol?
     
     var isStopped: Bool {
         return timer == nil && elapsedTime == 0
@@ -31,13 +38,31 @@ class PomodoroTimer {
         return timer == nil && elapsedTime > 0
     }
     
+    func getDuration() -> TimeInterval {
+        switch mode {
+        case .pomodoro:
+            return duration
+        case .pause:
+            return durationBreak
+        }
+    }
+    
+    func changeMode() -> Void {
+        switch mode {
+        case .pomodoro:
+            mode = .pause
+        case .pause:
+            mode = .pomodoro
+        }
+    }
+    
+    
     func timerAction(){
         guard let startTime = startTime else {
             return
         }
-        elapsedTime = -startTime.timeIntervalSinceNow
-        let secondsRemaining = duration - elapsedTime
         
+        var secondsRemaining = getDuration() + startTime.timeIntervalSinceNow   // Seconds reamining is duration - elapsedTime
         if secondsRemaining <= 0 {
             delegate?.timerHasFinished(self)
         } else {
@@ -79,7 +104,6 @@ class PomodoroTimer {
         
         startTime = nil
         stopTime = nil
-        duration = 25*60
         elapsedTime = 0
         
         timerAction()

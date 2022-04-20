@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NwI-3Q-y1V">
-                                <rect key="frame" x="18" y="20" width="438" height="230"/>
+                                <rect key="frame" x="53" y="29" width="371" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="R6w-6D-gVF">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -179,7 +179,7 @@
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Focus" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="450" height="350"/>
+                        <rect key="contentRect" x="196" y="240" width="450" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -228,14 +228,14 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b63-iZ-oM3">
                                 <rect key="frame" x="18" y="217" width="204" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Time of the current Pomodoro:" id="Fta-D9-ztO">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Time of Pomodoro:" id="Fta-D9-ztO">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJo-Hp-IlA">
-                                <rect key="frame" x="17" y="185" width="229" height="25"/>
+                                <rect key="frame" x="189" y="215" width="114" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="25 minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="25" imageScaling="proportionallyDown" inset="2" selectedItem="VhU-Zw-3pr" id="Iob-Ej-Q3z">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -257,7 +257,7 @@
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAE-Ue-Pgx">
-                                <rect key="frame" x="20" y="124" width="194" height="24"/>
+                                <rect key="frame" x="20" y="176" width="154" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Current Pomodoro time: " id="X89-mP-oiB">
                                     <font key="font" metaFont="system"/>
@@ -266,7 +266,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2j-fe-1kP">
-                                <rect key="frame" x="251" y="132" width="111" height="16"/>
+                                <rect key="frame" x="203" y="184" width="111" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="25 minutes" id="ILS-r0-z5e">
                                     <font key="font" metaFont="system"/>
@@ -275,7 +275,7 @@
                                 </textFieldCell>
                             </textField>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34q-9x-QQc">
-                                <rect key="frame" x="18" y="82" width="444" height="28"/>
+                                <rect key="frame" x="18" y="143" width="444" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="60" doubleValue="60" tickMarkPosition="above" numberOfTickMarks="60" allowsTickMarkValuesOnly="YES" sliderType="linear" id="S2Z-RK-hzE"/>
                                 <connections>
@@ -310,12 +310,56 @@ DQ
                                     <action selector="okButtonClicked:" target="p4M-zz-OlW" id="Mqs-c7-sw3"/>
                                 </connections>
                             </button>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="wr8-JS-5jO">
+                                <rect key="frame" x="20" y="125" width="440" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WeC-Bb-dDw">
+                                <rect key="frame" x="20" y="93" width="91" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Time of break:" id="vCc-RS-Psm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5W-gW-xy9">
+                                <rect key="frame" x="18" y="54" width="444" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="15" doubleValue="5.3571428571428568" tickMarkPosition="above" numberOfTickMarks="15" allowsTickMarkValuesOnly="YES" sliderType="linear" id="CtL-EF-CZh"/>
+                                <connections>
+                                    <action selector="breakSliderChanged:" target="p4M-zz-OlW" id="JOZ-Ek-wFh"/>
+                                </connections>
+                            </slider>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmj-ep-oyL">
+                                <rect key="frame" x="320" y="92" width="140" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Start automatically" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cyv-XD-MzL">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="tickAutomaticChanged:" target="p4M-zz-OlW" id="fTp-ZE-joo"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNF-4m-CcX">
+                                <rect key="frame" x="203" y="93" width="85" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="5 minutes" id="VnO-z0-Npr">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="breakField" destination="rNF-4m-CcX" id="Sm5-Ti-m8a"/>
+                        <outlet property="breakSlider" destination="N5W-gW-xy9" id="ftD-FP-ftm"/>
                         <outlet property="customLengthField" destination="n2j-fe-1kP" id="lgf-kg-6VN"/>
                         <outlet property="customSlider" destination="34q-9x-QQc" id="erB-iL-zyk"/>
                         <outlet property="presetsPopup" destination="tJo-Hp-IlA" id="QoE-tx-RMY"/>
+                        <outlet property="tickAutomatic" destination="cyv-XD-MzL" id="79u-9B-NKP"/>
                     </connections>
                 </viewController>
                 <customObject id="KuG-mo-or6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -327,7 +371,7 @@ DQ
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="457" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gd0-yx-smf">
@@ -381,7 +425,7 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-Ot-HOx">
-                                <rect key="frame" x="95" y="294" width="255" height="24"/>
+                                <rect key="frame" x="95" y="256" width="255" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Timer" id="yps-qH-sZK">
                                     <font key="font" size="21" name="HelveticaNeue"/>
@@ -389,19 +433,8 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-nw-gau">
-                                <rect key="frame" x="388" y="280.5" width="49" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ddZ-JU-gXn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="historyButtonClicked:" target="XfG-lQ-9wD" id="vOE-xg-xN4"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Sx-VI2">
-                                <rect key="frame" x="36" y="110" width="379" height="155"/>
+                                <rect key="frame" x="33" y="80" width="379" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="25:00" id="ryn-eL-EkP">
                                     <font key="font" size="140" name="HelveticaNeue"/>
@@ -409,6 +442,40 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-nw-gau">
+                                <rect key="frame" x="388" y="241.5" width="49.5" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ddZ-JU-gXn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="historyButtonClicked:" target="XfG-lQ-9wD" id="vOE-xg-xN4"/>
+                                    <segue destination="Omx-ND-tDF" kind="show" id="t5K-J6-KZR"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lfu-Xq-xyS">
+                                <rect key="frame" x="20" y="262" width="16" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSSmartBadgeTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="dVK-d1-IU4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="p4M-zz-OlW" kind="show" id="hOS-8n-7CA"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLG-w9-ocE">
+                                <rect key="frame" x="142" y="249.5" width="162.5" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" transparent="YES" imageScaling="proportionallyDown" inset="2" id="YTc-Cg-5JA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="titleButtonClicked:" target="XfG-lQ-9wD" id="Wya-Bb-skv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gd0-yx-smf" secondAttribute="trailing" id="lfc-OO-yUg"/>
@@ -441,7 +508,13 @@ DQ
             <point key="canvasLocation" x="74.5" y="746"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hOS-8n-7CA"/>
+        <segue reference="QGk-YE-lEb"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="NSAddTemplate" width="14" height="13"/>
         <image name="NSBookmarksTemplate" width="18" height="14"/>
+        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
     </resources>
 </document>
