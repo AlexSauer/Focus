@@ -14,7 +14,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var stopButton: NSButton!
     @IBOutlet weak var resetButton: NSButton!
-   
+    @IBOutlet weak var titleField: NSTextField!
+    @IBOutlet weak var historyButton: NSButton!
+    
     var pomodoroTimer = PomodoroTimer()
     var soundplayer: AVAudioPlayer?
     var prefs = Preferences()
@@ -54,6 +56,10 @@ class ViewController: NSViewController {
         pomodoroTimer.resetTimer()
         updateDisplay(for: prefs.selectedTime)
     }
+    
+    @IBAction func historyButtonClicked(_ sender: Any) {
+    }
+    
 }
 
 
@@ -133,44 +139,3 @@ extension ViewController {
         self.resetButtonClicked(self)
     }
 }
-
-
-// MARK: - File handling
-
-extension ViewController {
-    func write_file(file: String, text: String) {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
-            let fileURL = dir.appendingPathComponent(file)
-
-            //writing
-            do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
-                print("File saved!")
-            }
-            catch {print("Error occured!")}
-        }
-    }
-        
-    func read_file(file: String) {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(file)
-            
-            do {
-                let text = try String(contentsOf: fileURL, encoding: .utf8)
-                print(text)
-            }
-            catch{
-                print("File could not be read! \(error)")
-            }
-        }
-    }
-        
-//        //reading
-//        do {
-//            let text2 = try String(contentsOf: fileURL, encoding: .utf8)
-//        }
-//        catch {/* error handling here */}
-}
-
-

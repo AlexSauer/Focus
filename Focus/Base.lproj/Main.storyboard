@@ -327,14 +327,14 @@ DQ
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gd0-yx-smf">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="457" height="60"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dty-t9-EPV">
-                                        <rect key="frame" x="0.0" y="43" width="150" height="37"/>
+                                        <rect key="frame" x="0.0" y="32" width="152" height="28"/>
                                         <buttonCell key="cell" type="smallSquare" title="Start" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="XFQ-Yf-vXW">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="24"/>
@@ -344,7 +344,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sni-qw-vek">
-                                        <rect key="frame" x="150" y="43" width="150" height="37"/>
+                                        <rect key="frame" x="152" y="32" width="153" height="28"/>
                                         <buttonCell key="cell" type="smallSquare" title="Stop" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="59h-pu-nq9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="24"/>
@@ -354,7 +354,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QPt-Ou-0os">
-                                        <rect key="frame" x="300" y="43" width="150" height="37"/>
+                                        <rect key="frame" x="305" y="32" width="152" height="28"/>
                                         <buttonCell key="cell" type="smallSquare" title="Reset" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="bPW-eN-bTu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="24"/>
@@ -365,7 +365,6 @@ DQ
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="ck5-5g-CdN"/>
                                     <constraint firstItem="Sni-qw-vek" firstAttribute="height" secondItem="Gd0-yx-smf" secondAttribute="height" multiplier="0.466667" id="lqb-K1-Y7a"/>
                                     <constraint firstItem="QPt-Ou-0os" firstAttribute="height" secondItem="Gd0-yx-smf" secondAttribute="height" multiplier="0.466667" id="o54-Fh-Gcm"/>
                                     <constraint firstItem="Dty-t9-EPV" firstAttribute="height" secondItem="Gd0-yx-smf" secondAttribute="height" multiplier="0.466667" id="y7b-n6-7k2"/>
@@ -381,8 +380,28 @@ DQ
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-Ot-HOx">
+                                <rect key="frame" x="95" y="294" width="255" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Timer" id="yps-qH-sZK">
+                                    <font key="font" size="21" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-nw-gau">
+                                <rect key="frame" x="388" y="280.5" width="49" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ddZ-JU-gXn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="historyButtonClicked:" target="XfG-lQ-9wD" id="vOE-xg-xN4"/>
+                                </connections>
+                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Sx-VI2">
-                                <rect key="frame" x="36" y="131" width="379" height="155"/>
+                                <rect key="frame" x="36" y="110" width="379" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="25:00" id="ryn-eL-EkP">
                                     <font key="font" size="140" name="HelveticaNeue"/>
@@ -398,15 +417,31 @@ DQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="historyButton" destination="jqy-nw-gau" id="33X-aC-H1g"/>
                         <outlet property="resetButton" destination="QPt-Ou-0os" id="WTN-72-olJ"/>
                         <outlet property="startButton" destination="Dty-t9-EPV" id="ZFm-DG-1Aw"/>
                         <outlet property="stopButton" destination="Sni-qw-vek" id="YXp-td-geJ"/>
                         <outlet property="timeLeftField" destination="M0l-Sx-VI2" id="Lv2-B4-0k1"/>
+                        <outlet property="titleField" destination="CLp-Ot-HOx" id="UiW-Qv-Q6P"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <button verticalHuggingPriority="750" id="3Mk-1E-xLF">
+                    <rect key="frame" x="0.0" y="0.0" width="152" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="Reset" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="d8T-Iq-pfi">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="24"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="resetButtonClicked:" target="XfG-lQ-9wD" id="HQX-sb-uRt"/>
+                    </connections>
+                </button>
             </objects>
-            <point key="canvasLocation" x="74" y="702"/>
+            <point key="canvasLocation" x="74.5" y="746"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSBookmarksTemplate" width="18" height="14"/>
+    </resources>
 </document>

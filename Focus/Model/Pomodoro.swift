@@ -25,6 +25,6 @@ struct Pomodoro {
     }
     
     func toString() -> String {
-        return "\(startTime!); \(endTime); \(duration)"
+        return "\(startTime!); \(endTime); \(Int(duration / 60))"
     }
 }
