@@ -59,6 +59,19 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="History" id="cBR-Mk-xRk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="History" id="zIu-ho-MNu">
+                                    <items>
+                                        <menuItem title="Show History" id="OtT-ct-kIG">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="Omx-ND-tDF" kind="show" id="QGk-YE-lEb"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -106,7 +119,59 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-87"/>
+            <point key="canvasLocation" x="771" y="-277"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="5Ga-hI-rJe">
+            <objects>
+                <windowController id="Omx-ND-tDF" sceneMemberID="viewController">
+                    <window key="window" title="History" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fog-x8-rce">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="163" y="197" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+                        <view key="contentView" id="LVZ-Qu-tjt">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="Omx-ND-tDF" id="BCb-Dx-Bxo"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="khY-Hq-7Ju" kind="relationship" relationship="window.shadowedContentViewController" id="zBK-hh-Jbc"/>
+                    </connections>
+                </windowController>
+                <customObject id="393-eg-m8P" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="285"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="qXm-sV-0Cb">
+            <objects>
+                <viewController id="khY-Hq-7Ju" customClass="HistoryViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="70n-35-jZk">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NwI-3Q-y1V">
+                                <rect key="frame" x="18" y="20" width="438" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="R6w-6D-gVF">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="historyLabel" destination="NwI-3Q-y1V" id="okE-LO-Uqs"/>
+                    </connections>
+                </viewController>
+                <customObject id="JDH-nh-Ceo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="714"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -150,7 +215,7 @@
                 </windowController>
                 <customObject id="92H-SR-1uO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="230"/>
+            <point key="canvasLocation" x="603" y="285"/>
         </scene>
         <!--Prefs View Controller-->
         <scene sceneID="0E8-mv-EJB">
@@ -255,7 +320,7 @@ DQ
                 </viewController>
                 <customObject id="KuG-mo-or6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="662"/>
+            <point key="canvasLocation" x="603" y="714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

@@ -17,6 +17,7 @@ protocol PomodoroTimerProtocol {
 class PomodoroTimer {
     var timer: Timer? = nil
     var startTime: Date?
+    var stopTime: Date?
     var duration: TimeInterval = 25*60
     var elapsedTime: TimeInterval = 0
     
@@ -46,6 +47,7 @@ class PomodoroTimer {
     
     func startTimer() {
         startTime = Date()
+        stopTime = nil
         elapsedTime = 0
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ timer in
@@ -64,6 +66,7 @@ class PomodoroTimer {
     }
     
     func stopTimer(){
+        stopTime = Date.now
         timer?.invalidate()
         timer = nil
         
@@ -75,6 +78,7 @@ class PomodoroTimer {
         timer = nil
         
         startTime = nil
+        stopTime = nil
         duration = 25*60
         elapsedTime = 0
         

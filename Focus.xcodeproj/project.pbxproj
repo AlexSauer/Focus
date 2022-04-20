@@ -16,6 +16,9 @@
 		3B678EC1280EC0970035C4DC /* Focus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B678EBF280EC0970035C4DC /* Focus.xcdatamodeld */; };
 		3B678EC3280EC09B0035C4DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B678EC2280EC09B0035C4DC /* Assets.xcassets */; };
 		3B678EC6280EC09B0035C4DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B678EC4280EC09B0035C4DC /* Main.storyboard */; };
+		3BBFCE5D280F56D100D6E216 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBFCE5C280F56D100D6E216 /* Pomodoro.swift */; };
+		3BBFCE5F280F59A000D6E216 /* PomodoroHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBFCE5E280F59A000D6E216 /* PomodoroHistory.swift */; };
+		3BBFCE61280F601500D6E216 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBFCE60280F601500D6E216 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		3B678EC2280EC09B0035C4DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B678EC5280EC09B0035C4DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B678EC7280EC09B0035C4DC /* Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Focus.entitlements; sourceTree = "<group>"; };
+		3BBFCE5C280F56D100D6E216 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		3BBFCE5E280F59A000D6E216 /* PomodoroHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroHistory.swift; sourceTree = "<group>"; };
+		3BBFCE60280F601500D6E216 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 			children = (
 				3B264360280EEE460015E41B /* PomodoroTimer.swift */,
 				3B264362280F059E0015E41B /* Preferences.swift */,
+				3BBFCE5C280F56D100D6E216 /* Pomodoro.swift */,
+				3BBFCE5E280F59A000D6E216 /* PomodoroHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +96,7 @@
 			children = (
 				3B678EBD280EC0970035C4DC /* ViewController.swift */,
 				3B26435C280EC9840015E41B /* PrefsViewController.swift */,
+				3BBFCE60280F601500D6E216 /* HistoryViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -164,9 +173,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B678EBE280EC0970035C4DC /* ViewController.swift in Sources */,
+				3BBFCE5F280F59A000D6E216 /* PomodoroHistory.swift in Sources */,
 				3B678EC1280EC0970035C4DC /* Focus.xcdatamodeld in Sources */,
 				3B264363280F059E0015E41B /* Preferences.swift in Sources */,
+				3BBFCE5D280F56D100D6E216 /* Pomodoro.swift in Sources */,
 				3B678EBC280EC0970035C4DC /* AppDelegate.swift in Sources */,
+				3BBFCE61280F601500D6E216 /* HistoryViewController.swift in Sources */,
 				3B264361280EEE460015E41B /* PomodoroTimer.swift in Sources */,
 				3B26435D280EC9840015E41B /* PrefsViewController.swift in Sources */,
 			);

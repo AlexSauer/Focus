@@ -18,33 +18,14 @@ class ViewController: NSViewController {
     var pomodoroTimer = PomodoroTimer()
     var soundplayer: AVAudioPlayer?
     var prefs = Preferences()
+    var history = PomodoroHistory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.layer?.backgroundColor = CGColor(red: 1.0, green: 1, blue: 0, alpha: 1.0)
         self.view.wantsLayer = true
         pomodoroTimer.delegate = self
         setupPrefs()
     }
-    
-// Changing the view controller appearance to dark aqua solved the color problem
-//    override func awakeFromNib() {
-//
-//        if self.view.layer != nil {
-//            let color : CGColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-//            self.view.layer?.backgroundColor = color
-//
-//            let textcolor = NSColor.white
-//            let buttonAttributes = [NSAttributedString.Key.foregroundColor: textcolor]
-//            timeLeftField.textColor = textcolor
-//            startButton.attributedTitle = NSAttributedString(
-//                string: "Start", attributes: buttonAttributes)
-//            stopButton.attributedTitle = NSAttributedString(
-//                string: "Stop", attributes: buttonAttributes)
-//            resetButton.attributedTitle = NSAttributedString(
-//                string: "Reset", attributes: buttonAttributes)
-//        }
-//    }
 
     override var representedObject: Any? {
         didSet {
@@ -69,6 +50,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func resetButtonClicked(_ sender: Any) {
+        history.append(Pomodoro(pomodoroTimer))
         pomodoroTimer.resetTimer()
         updateDisplay(for: prefs.selectedTime)
     }
@@ -153,6 +135,42 @@ extension ViewController {
 }
 
 
+// MARK: - File handling
 
+extension ViewController {
+    func write_file(file: String, text: String) {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+            let fileURL = dir.appendingPathComponent(file)
+
+            //writing
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                print("File saved!")
+            }
+            catch {print("Error occured!")}
+        }
+    }
+        
+    func read_file(file: String) {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(file)
+            
+            do {
+                let text = try String(contentsOf: fileURL, encoding: .utf8)
+                print(text)
+            }
+            catch{
+                print("File could not be read! \(error)")
+            }
+        }
+    }
+        
+//        //reading
+//        do {
+//            let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+//        }
+//        catch {/* error handling here */}
+}
 
 
