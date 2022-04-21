@@ -90,6 +90,8 @@ extension ViewController: GeneralTimerProtocol {
         if pomodoroTimer.mode == .pomodoro{
             history.append(Pomodoro(pomodoroTimer))
         }
+        
+        // Change the title and the mode of the timer
         titleButtonClicked(self)
         
         // Depending on the settings, automatically restart the break timer
